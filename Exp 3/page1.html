@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Data Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .label {
+            font-weight: bold;
+            width: 200px;
+        }
+        .colon {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        input, select {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+            background: transparent;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            table-layout: fixed;
+        }
+        td, th {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            word-wrap: break-word;
+            overflow: hidden;
+        }
+        input {
+            width: 95%;
+            padding: 5px;
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+            background: transparent;
+        }
+        .mode-of-admission {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 6px;
+        }
+    </style>
+</head>
+<body>
+    <form id="bioDataForm">
+        <div class="container">
+            <h2>BIO-DATA</h2>
+            <div class="info"><span class="label">1. Name</span><span class="colon">:</span><input type="text" id="name"></div>
+            <div class="info"><span class="label">2. Date of Birth</span><span class="colon">:</span><input type="date" id="dob"></div>
+            <div class="info"><span class="label">3. Email ID</span><span class="colon">:</span><input type="email" id="email"></div>
+            <div class="info"><span class="label">4. Community and Caste</span><span class="colon">:</span><input type="text" id="community"></div>
+            <div class="info"><span class="label">5. Blood Group</span><span class="colon">:</span><input type="text" id="blood_group"></div>
+            <div class="info"><span class="label">6. Father's / Guardian's Name</span><span class="colon">:</span><input type="text" id="father_name"></div>
+            <div class="info"><span class="label">7. Occupation & Annual Income</span><span class="colon">:</span><input type="text" id="occupation"></div>
+            <div class="info"><span class="label">8. Native Place & District</span><span class="colon">:</span><input type="text" id="native_place"></div>
+            <div class="info"><span class="label">9. Local Guardian Address & Ph. No.</span><span class="colon">:</span><input type="text" id="guardian_address"></div>
+            <div class="info"><span class="label">10. Exam Passed</span><span class="colon">:</span><input type="text" id="exam_passed"></div>
+            <table>
+                <tr>
+                    <th>Exam</th>
+                    <th>Institution, Board / University</th>
+                    <th>Max Marks</th>
+                    <th>Marks Secured</th>
+                    <th>% Marks</th>
+                    <th>Year</th>
+                </tr>
+                <tr>
+                    <td>SSLC</td>
+                    <td><input type="text"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>H.Sc</td>
+                    <td><input type="text"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>UG Degree</td>
+                    <td><input type="text"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td>PG Degree</td>
+                    <td><input type="text"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                    <td><input type="number"></td>
+                </tr>
+            </table>
+            <div class="mode-of-admission">
+                <span class="label">11. Mode of Admission</span>
+                <select id="admission_mode">
+                    <option value="">Select</option>
+                    <option value="Counselling">Counselling</option>
+                    <option value="Mgt">Mgt</option>
+                    <option value="NRI">NRI</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+        </div>
+        <div class="button-container">
+            <button type="submit" class="btn">Submit</button>
+            <a href="index.html" class="btn">Prev</a>
+            <a href="page2.html" class="btn">Next</a>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("bioDataForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let dob = document.getElementById("dob").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let community = document.getElementById("community").value.trim();
+            let bloodGroup = document.getElementById("blood_group").value.trim();
+            let fatherName = document.getElementById("father_name").value.trim();
+            let occupation = document.getElementById("occupation").value.trim();
+            let nativePlace = document.getElementById("native_place").value.trim();
+            let guardianAddress = document.getElementById("guardian_address").value.trim();
+            let examPassed = document.getElementById("exam_passed").value.trim();
+            let admissionMode = document.getElementById("admission_mode").value;
+
+            let namePattern = /^[A-Za-z\s]+$/;
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            let bloodPattern = /^(A|B|AB|O)[+-]$/;
+
+            if (!name || !dob || !email || !community || !bloodGroup || !fatherName || !occupation || !nativePlace || !guardianAddress || !examPassed) {
+                alert("All fields must be filled!");
+                return false;
+            }
+            if (!namePattern.test(name)) {
+                alert("Name must contain only letters and spaces!");
+                return false;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid email address!");
+                return false;
+            }
+            if (!bloodPattern.test(bloodGroup)) {
+                alert("Enter a valid blood group (A+, B-, O+, etc.)!");
+                return false;
+            }
+            if (admissionMode === "") {
+                alert("Please select a Mode of Admission!");
+                return false;
+            }
+            alert("Form submitted successfully!");
+            return true;
+        });
+    </script>
+</body>
+</html>

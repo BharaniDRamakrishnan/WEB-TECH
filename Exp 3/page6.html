@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Academic Record</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 2px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+        th {
+            background-color: #c8d6c8;
+        }
+        input {
+            width: 90%;
+            border: none;
+            border-bottom: 1px solid black;
+            text-align: center;
+            outline: none;
+            background: #d4e6d4;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .row label {
+            font-weight: bold;
+        }
+        .row input {
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <form>
+    <div class="container">
+        <div class="row">
+            <label>PROGRAMME: <input type="text"></label>
+            <label>BRANCH: <input type="text"></label>
+            <label>SEMESTER: <input type="text"></label>
+        </div>
+        <p><strong>Register No: </strong><input type="text"></p>
+        <table>
+            <tr>
+                <th>Sl. No.</th>
+                <th>Course Code & Name</th>
+                <th>Credit</th>
+                <th>CA Marks (50)</th>
+                <th colspan="4">End Semester Grade</th>
+            </tr>
+            <tr>
+                <th></th><th></th><th></th><th></th>
+                <th>Dec 20</th><th>May 20</th><th>Dec 20</th><th>May 20</th>
+            </tr>
+            <script>
+                for (let i = 1; i <= 10; i++) {
+                    document.write(`
+                        <tr>
+                            <td>${i}</td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                    `);
+                }
+            </script>
+        </table>
+        <p><strong>Attendance: </strong><input type="text" style="width: 50px;"><strong>%</strong></p>
+        <p><strong>GPA: </strong> <input type="text" style="width: 50px;"> <strong>CGPA: </strong><input type="text" style="width: 50px;"></p>
+        <p><strong>Remarks: </strong><input type="text" style="width: 100%;"></p>
+        <div class="footer">
+            <p><strong>Signature of the Student: </strong><input type="text" style="width: 200px;"></p>
+            <table>
+                <tr>
+                    <th>Name & Signature</th>
+                    <th>Class Advisor</th>
+                    <th>Head of Department</th>
+                </tr>
+                <tr>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+        <div class="button-container">
+            <a href="page5.html" class="btn">Previous</a>
+            <a href="page7.html" class="btn">Next</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homemade Food Store</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+<style>
+.card-img-top {
+    width: 100%; /* Make the image take up the full width of the card */
+    height: 200px; /* Set a consistent height */
+    object-fit: cover; /* Ensures the image scales and crops proportionally to fit the defined size */
+}
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="logo.webp" alt="Homely Bites Logo" class="logo-img">Homely Bites
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="shop.html">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">Cart</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- Homemade Desserts Section -->
+<section id="desserts" class="container my-5">
+    <h2 class="text-center"><br>Delicious Homemade Desserts</h2><br>
+    <div class="row">
+        <!-- Dessert 1: Gulab Jamun -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="gulab.jpg" class="card-img-top" alt="Gulab Jamun">
+                <div class="card-body">
+                    <h5 class="card-title">Gulab Jamun</h5>
+                    <p class="card-text">Soft and spongy deep-fried dough balls soaked in a sweet, fragrant sugar syrup, a classic Indian dessert.</p>
+                    <p class="price">15.00</p>
+                    <button class="btn btn-primary" onclick="addToCart('Gulab Jamun', 15.00)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dessert 2: Rasgulla -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="rasagula.jpg" class="card-img-top" alt="Rasgulla">
+                <div class="card-body">
+                    <h5 class="card-title">Rasgulla</h5>
+                    <p class="card-text">Spongy and sweet Bengali delicacy made from chhena (cottage cheese) soaked in sugar syrup.</p>
+                    <p class="price">20.00</p>
+                    <button class="btn btn-primary" onclick="addToCart('Rasgulla', 20.00)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <!-- Dessert 3: Carrot Halwa -->
+<div class="col-md-4">
+    <div class="card">
+        <img src="carrot.jpg" class="card-img-top" alt="Carrot Halwa">
+        <div class="card-body">
+            <h5 class="card-title">Carrot Halwa</h5>
+            <p class="card-text">A rich and creamy dessert made with grated carrots, milk, sugar, and ghee, flavored with cardamom and garnished with nuts.</p>
+            <p class="price">50.00</p>
+            <button class="btn btn-primary" onclick="addToCart('Carrot Halwa', 50.00)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+<!-- Dessert 4: Ladoo -->
+<div class="col-md-4">
+    <div class="card">
+        <img src="laddo.jpeg" class="card-img-top" alt="Ladoo">
+        <div class="card-body">
+            <h5 class="card-title">Ladoo</h5>
+            <p class="card-text">Sweet, round-shaped treats made with flour, sugar, and ghee. Popular during festivals and celebrations.</p>
+            <p class="price">10.00</p>
+            <button class="btn btn-primary" onclick="addToCart('Ladoo', 10.00)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<!-- Dessert 5: Jalebi -->
+<div class="col-md-4">
+    <div class="card">
+        <img src="jilebi.jpg" class="card-img-top" alt="Jalebi">
+        <div class="card-body">
+            <h5 class="card-title">Jalebi</h5>
+            <p class="card-text">A crispy and syrupy sweet made by deep-frying coiled batter and soaking it in sugar syrup. A delicious treat for any occasion.</p>
+            <p class="price">10.00</p>
+            <button class="btn btn-primary" onclick="addToCart('Jalebi', 10.00)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<!-- Dessert 6: Brownie -->
+<div class="col-md-4">
+    <div class="card">
+        <img src="brownie.jpg" class="card-img-top" alt="Brownie">
+        <div class="card-body">
+            <h5 class="card-title">Brownie</h5>
+            <p class="card-text">Rich, fudgy, and chocolatey brownies that are perfect for satisfying your sweet tooth.</p>
+            <p class="price">50.00</p>
+            <button class="btn btn-primary" onclick="addToCart('Brownie', 50.00)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<!-- Dessert 7: Chocolate Cake -->
+<div class="col-md-4">
+    <div class="card">
+        <img src="cc.jpg" class="card-img-top" alt="Chocolate Cake">
+        <div class="card-body">
+            <h5 class="card-title">Chocolate Cake</h5>
+            <p class="card-text">A moist and rich chocolate cake with layers of creamy frosting, perfect for any occasion.</p>
+            <p class="price">60.00</p>
+            <button class="btn btn-primary" onclick="addToCart('Chocolate Cake', 60.00)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<!-- Dessert 8: Cheesecake -->
+<div class="col-md-4">
+    <div class="card">
+        <img src="cheese.jpg" class="card-img-top" alt="Cheesecake">
+        <div class="card-body">
+            <h5 class="card-title">Cheesecake</h5>
+            <p class="card-text">Creamy and rich cheesecake with a buttery graham cracker crust. Topped with fresh fruit or a drizzle of caramel.</p>
+            <p class="price">60.00</p>
+            <button class="btn btn-primary" onclick="addToCart('Cheesecake', 60.00)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<!-- Dessert 9: Chocolate Mousse -->
+<div class="col-md-4">
+    <div class="card">
+        <img src="cm.jpg" class="card-img-top" alt="Chocolate Mousse">
+        <div class="card-body">
+            <h5 class="card-title">Chocolate Mousse</h5>
+            <p class="card-text">A smooth and fluffy chocolate mousse with a rich chocolate flavor. Perfectly creamy with a light texture.</p>
+            <p class="price">100.00</p>
+            <button class="btn btn-primary" onclick="addToCart('Chocolate Mousse', 100.00)">Add to Cart</button>
+        </div>
+    </div>
+</div>
+</section>
+<script>
+// Add item to the cart and store it in localStorage
+function addToCart(name, price) {
+    // Get the current cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add the new item to the cart
+    let item = { name, price, quantity: 1 };
+    cart.push(item);
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Optional: Display a message or update cart UI
+    alert(name + " has been added to your cart!");
+}
+</script>
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Homely Bites. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a>
+        </p>
+        <p>Follow us on:
+            <a>Facebook</a> |
+            <a>Instagram</a> |
+            <a>Twitter</a>
+        </p>
+    </div>
+</footer>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

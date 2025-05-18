@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+h1 {
+    color: #1e90ff;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #333;
+    margin-top: 40px;
+}
+
+input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+button {
+    margin: 10px 5px 20px 0;
+    padding: 10px 20px;
+    border: none;
+    background-color: #1e90ff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0d6efd;
+}
+
+#studentsList {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+#studentsList li {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#studentsList button {
+    margin-left: 10px;
+    background-color: #32cd32;
+}
+
+#studentsList button:last-child {
+    background-color: #ff4d4d;
+}
+
+#studentsList button:hover {
+    opacity: 0.9;
+}
+
+center {
+    margin-bottom: 20px;
+}

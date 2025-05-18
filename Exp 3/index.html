@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .college-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .college-header img {
+            width: 60px; 
+            height: auto;
+        }
+        .college-name {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .college-address {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+        .photo {
+            width: 120px;
+            height: 140px;
+            border: 2px solid #000;
+            display: block;
+            margin: 10px auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+        td {
+            padding: 8px;
+            border: none;
+        }
+        .label {
+            font-weight: bold;
+            width: 200px;
+        }
+        .input-box {
+            border: none;
+            border-bottom: 1px solid black;
+            width: 100%;
+            font-size: 16px;
+            outline: none;
+            background: transparent;
+            padding: 5px 0;
+        }
+        .study-period {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: nowrap;
+        }
+        .study-period input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            border-bottom: 1px solid black;
+            font-size: 16px;
+            outline: none;
+            background: transparent;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById("name").value.trim();
+            let regNo = document.getElementById("regNo").value.trim();
+            let programme = document.getElementById("programme").value.trim();
+            let fromYear = document.getElementById("fromYear").value.trim();
+            let toYear = document.getElementById("toYear").value.trim();
+
+            let namePattern = /^[A-Z][a-z]+\s[A-Z]\.?$/; // Example: "John D."
+            let regNoPattern = /^[0-9]{2}[A-Z]{3}[0-9]{3}$/; // Example: "23ITR013"
+
+            let isValid = true;
+
+            // Validate Name
+            if (!namePattern.test(name)) {
+                document.getElementById("nameError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("nameError").style.display = "none";
+            }
+
+            // Validate Register Number
+            if (!regNoPattern.test(regNo)) {
+                document.getElementById("regNoError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("regNoError").style.display = "none";
+            }
+
+            // Validate Programme
+            if (programme === "") {
+                document.getElementById("programmeError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("programmeError").style.display = "none";
+            }
+
+            // Validate Period of Study
+            if (fromYear === "" || toYear === "") {
+                document.getElementById("studyPeriodError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("studyPeriodError").style.display = "none";
+            }
+
+            if (isValid) {
+                alert("Form submitted successfully!");
+                document.getElementById("studentForm").submit();
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="studentForm" onsubmit="validateForm(event)">
+        <div class="container">
+            <div class="college-header">
+                <img src="images.png" alt="College Logo">
+                <div class="college-name">KONGU ENGINEERING COLLEGE<br>(Autonomous)</div>
+                <img src="images1.png" alt="College Logo">
+            </div>
+            <div class="college-address">THOPPUPALAYAM (Po), PERUNDURAI (Tk),<br>ERODE - 638 060, TAMILNADU, INDIA</div>
+            <h2 style="text-align: center;">STUDENT RECORD</h2>
+            <img src="profile.jpg" alt="Student Photo" class="photo">
+            <table>
+                <tr>
+                    <td class="label">NAME:</td>
+                    <td>
+                        <input type="text" id="name" class="input-box" placeholder="Enter name">
+                        <span class="error" id="nameError">Enter a valid name (e.g., Bharani R.)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">REG No.:</td>
+                    <td>
+                        <input type="text" id="regNo" class="input-box" placeholder="Enter reg no.">
+                        <span class="error" id="regNoError">Enter a valid Reg No. (e.g., 23ITR013)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">PROGRAMME, BRANCH & SECTION:</td>
+                    <td>
+                        <input type="text" id="programme" class="input-box" placeholder="B.Tech">
+                        <span class="error" id="programmeError">This field is required</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="text" class="input-box" placeholder="Information Technology"></td>
+                </tr>
+                <tr>
+                    <td class="label">PERIOD OF STUDY:</td>
+                    <td>
+                        <div class="study-period">
+                            <span>From</span> <input type="text" id="fromYear" class="input-box small-box" placeholder="2023">
+                            <span>To</span> <input type="text" id="toYear" class="input-box small-box" placeholder="2027">
+                        </div>
+                        <span class="error" id="studyPeriodError">Both years are required</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="button-container">
+            <button type="submit" class="btn">Submit</button>
+            <a href="page1.html" class="btn">Next</a>
+        </div>
+    </form>
+</body>
+</html>

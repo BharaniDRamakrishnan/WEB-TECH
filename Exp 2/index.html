@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homemade Deserts</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .logo-img {
+            width: 50px; /* Adjust size */
+            height: 50px;
+            border-radius: 50%; /* Optional: Makes the logo round */
+            margin-right: 10px; /* Adds spacing between logo and text */
+        }
+
+        body {
+           
+            background-size: cover;
+        }
+
+        /* Header Section with Background Image */
+        .header-section {
+            background-image: url('h1.jpg'); /* Replace with your image path */
+            background-size: cover; /* Ensures the image covers the entire section */
+            background-position: center; /* Centers the image */
+            color: #FFF; /* White text color for contrast */
+            padding: 10px 0; /* Adds padding to top and bottom */
+            text-align: center; /* Centers the text */
+        }
+
+        .header-section h2 {
+            color: #FFF; /* White text color for the title */
+            font-size: 3rem; /* Adjust the size of the header */
+        }
+
+        .header-section p {
+            font-size: 1.2rem; /* Adjust paragraph size */
+        }
+
+        /* Fullscreen Home Section */
+        #home {
+            height: 100vh; /* Full viewport height */
+        }
+        
+        p{
+            color: #f8f9fa;
+             text-decoration: none;
+        }
+       
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logo.webp" alt="Homely Bites Logo" class="logo-img">
+        Homely Bites
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Home Section -->
+<section id="home" class="text-center text-white d-flex justify-content-center align-items-center" style="background-image: url('h1.jpg'); background-size: cover;">
+    <div class="container">
+        <p class="display-4" style="color:white"><strong>Welcome to Homely Bites</strong></p>
+        <p class="lead" style="color:white">Freshly made, delicious desserts delivered to your doorstep!</p>
+        <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+    </div>
+</section>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Homely Bites. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a>
+        </p>
+        <p>Follow us on:
+            <a>Facebook</a> |
+            <a>Instagram</a> |
+            <a>Twitter</a>
+        </p>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

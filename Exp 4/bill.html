@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        input, button {
+            width: 90%;
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+        .total {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .result-box {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bill Calculator</h2>
+        <input type="text" id="item-name" placeholder="Item Name">
+        <input type="number" id="item-price" placeholder="Price">
+        <input type="number" id="item-quantity" placeholder="Quantity">
+        <button id="calculate-btn">Calculate</button>
+        <p class="total">Total: ₹<span id="total-bill">0</span></p>
+        <div id="result-container"></div>
+    </div>
+    <script>
+        document.getElementById("calculate-btn").addEventListener("click", function() {
+            let name = document.getElementById("item-name").value.trim();
+            let price = parseFloat(document.getElementById("item-price").value);
+            let quantity = parseInt(document.getElementById("item-quantity").value);
+            
+            if (!name || isNaN(price) || isNaN(quantity) || price <= 0 || quantity <= 0) {
+
+                //
+            let total = (price * quantity).toFixed(2);
+            document.getElementById("total-bill").textContent = total;
+            
+            let resultBox = document.createElement("div");
+            resultBox.className = "result-box";
+            resultBox.textContent = `Item: ${name}, Qty: ${quantity}, Total: ₹${total}`;
+            document.getElementById("result-container").appendChild(resultBox);
+        });
+    </script>
+</body>
+</html>

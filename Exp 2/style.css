@@ -1,0 +1,29 @@
+
+        .logo-img {
+            width: 50px; /* Adjust size */
+            height: 40px;
+            border-radius: 50%; /* Optional: Makes the logo round */
+            margin-right: 10px; /* Adds spacing between logo and text */
+        }
+
+        body {
+           
+            background-size: cover;
+        }
+        .navbar {
+            height: 60px; /* Sets a custom height for the navbar */
+            padding: 0 10px; /* Adjusts padding inside the navbar */
+        }
+        footer{
+            background-color: #000; 
+            color: #fff; 
+            padding: 15px 0; 
+            text-align: center
+
+        }
+        .container a{
+            color: #f8f9fa;
+            text-decoration: none;
+            text-decoration-color: #FFF;
+   
+           }

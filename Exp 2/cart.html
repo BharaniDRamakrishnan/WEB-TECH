@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Homemade Food Store</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        /* Cart Section Styling */
+        #cart {
+            margin-top: 80px; /* Adjust for navbar height */
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #cart h2 {
+            font-weight: bold;
+            color: #444;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #cart h3 {
+            font-weight: bold;
+            color: #333;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        /* Table Styling */
+        .table {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .table thead th {
+            background-color: #6c757d;
+            color: #fff;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .table tbody td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f1f1f1; /* Add hover effect for rows */
+        }
+
+        /* Input Styling for Quantity */
+        .form-control {
+            width: 70px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* Button Styling */
+        .btn {
+            font-size: 14px;
+        }
+
+        .btn-danger {
+            font-size: 14px;
+            padding: 5px 10px;
+        }
+
+        .btn-success {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="logo.webp" alt="Homely Bites Logo" class="logo-img">Homely Bites
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Cart Section -->
+<section id="cart" class="container my-5">
+    <h2><br>Your Cart</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </tbody>
+    </table>
+    <h3>Total: <span id="total-price">0.00</span></h3>
+    <a href="checkout.html" class="btn btn-success">Proceed to Checkout</a>
+</section>
+
+<!-- JavaScript to handle cart operations -->
+<script>
+// Load the cart from localStorage and display it
+function loadCart() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cartItems = document.getElementById('cart-items');
+    let totalPrice = 0;
+
+    cartItems.innerHTML = ''; // Clear existing items
+
+    cart.forEach(item => {
+        totalPrice += item.price * item.quantity;
+
+        let row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td><input type="number" class="form-control" value="${item.quantity}" min="1" onchange="updateQuantity('${item.name}', this.value)"></td>
+            <td>${item.price.toFixed(2)}</td>
+            <td>${(item.quantity * item.price).toFixed(2)}</td>
+            <td><button class="btn btn-danger" onclick="removeItem('${item.name}')">Remove</button></td>
+        `;
+        cartItems.appendChild(row);
+    });
+
+    // Update total price
+    document.getElementById('total-price').textContent = `${totalPrice.toFixed(2)}`;
+}
+
+// Remove an item from the cart
+function removeItem(name) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(item => item.name !== name); // Filter out the item to be removed
+    localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
+
+    loadCart(); // Reload the cart
+}
+
+// Update item quantity in the cart
+function updateQuantity(name, quantity) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let item = cart.find(item => item.name === name);
+    if (item) {
+        item.quantity = parseInt(quantity); // Update the quantity
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save the updated cart
+    loadCart(); // Reload the cart
+}
+
+// Load cart items when the page loads
+window.onload = loadCart;
+</script><br>
+<footer>
+    <div class="container">
+        <p>&copy; 2025 Homely Bites. All rights reserved.</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a>
+        </p>
+        <p>Follow us on:
+            <a>Facebook</a> |
+            <a>Instagram</a> |
+            <a>Twitter</a>
+        </p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
